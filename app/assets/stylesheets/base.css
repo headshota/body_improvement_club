@@ -1,0 +1,13 @@
+@layer base {
+  body {
+    background: oklch(var(--color-canvas));
+    color: oklch(var(--lch-black))
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: oklch(var(--color-selected-dark));
+      color: oklch(var(--lch-white))
+    }
+  }
+}

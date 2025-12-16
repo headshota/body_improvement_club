@@ -1,0 +1,14 @@
+@layer base;
+
+:root {
+  --breakpoint-tablet-and-up: 50rem;
+
+  /* Abstract colors */
+  --lch-white: 100% 0 0;
+  --lch-black: 0 0 100%;
+  --lch-blue-dark: 0.1763 0.014 258.36;
+  
+  /* Theme colors */
+  --color-canvas: var(--lch-white);
+  --color-selected-dark: var(--lch-blue-dark);
+}
