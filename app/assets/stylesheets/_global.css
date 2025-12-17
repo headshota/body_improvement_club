@@ -8,7 +8,11 @@
   --lch-black: 0 0 100%;
   --lch-blue-dark: 0.1763 0.014 258.36;
   
-  /* Theme colors */
-  --color-canvas: var(--lch-white);
-  --color-selected-dark: var(--lch-blue-dark);
+  /* Light Theme colors*/
+  --canvas-color-light: var(--lch-white);
+  --default-font-color-light: var(--lch-black);
+  
+  /* Dark Theme colors */
+  --canvas-color-dark: var(--lch-blue-dark);
+  --default-font-color-dark: var(--lch-white);
 }
