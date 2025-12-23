@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
+  include Pagy::Method
   def index
-    # TODO: pagination needs to be implemented
-    @exercises = Exercise.all
+    @pagy, @exercises = pagy(:offset, Exercise.all, limit: 5)
   end
 
   def new
