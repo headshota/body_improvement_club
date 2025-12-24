@@ -2,10 +2,12 @@
 
 <% @exercises.each do |exercise| %>
   
-  <div>
-    <h3><%= exercise.name %></h3>
-    <div><%= exercise.description %></div> 
-  </div>
+  <article>
+    <header>
+      <h3><%= exercise.name %></h3>
+    </header>
+    <p><%= exercise.description %></p>
+  </article>
   
 <% end %>
 
