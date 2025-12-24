@@ -5,6 +5,7 @@ class ExercisesController < ApplicationController
   end
 
   def new
+    @exercise = Exercise.new
   end
 
   def create
