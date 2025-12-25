@@ -1,7 +1,7 @@
 @layer base {
   body {
     background: oklch(var(--canvas-color-light));
-    color: oklch(var(--default-font-color-light))
+    color: oklch(var(--default-font-color-light));
   }
 
   @media (prefers-color-scheme: dark) {

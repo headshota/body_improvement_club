@@ -1,6 +1,6 @@
 <h1>Exercises</h1>
 
-<%= link_to "Create Exercise", new_exercise_path %>
+<%= link_to 'Create Exercise', new_exercise_path, class: 'btn' %>
 
 <% @exercises.each do |exercise| %>
   
@@ -9,7 +9,7 @@
       <h3><%= exercise.name %></h3>
     </header>
     <p><%= exercise.description %></p>
-    <%= link_to "Edit", edit_exercise_path(exercise) %>
+    <%= link_to 'Edit', edit_exercise_path(exercise), class: 'btn' %>
   </article>
   
 <% end %>
