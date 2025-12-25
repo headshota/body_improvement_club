@@ -7,12 +7,18 @@
   --lch-white: 100% 0 0;
   --lch-black: 0 0 100%;
   --lch-blue-dark: 0.1763 0.014 258.36;
+  --lch-violet: 0.6147 0.0888 298.59;
+  --lch-violet-dark: 0.4139 0.0888 298.59;
   
   /* Light Theme colors*/
   --canvas-color-light: var(--lch-white);
   --default-font-color-light: var(--lch-black);
+  --button-bg-color-light: var(--lch-violet);
+  --button-bg-color-light-hover: var(--lch-violet-dark);
   
   /* Dark Theme colors */
   --canvas-color-dark: var(--lch-blue-dark);
   --default-font-color-dark: var(--lch-white);
+  --button-bg-color-dark: var(--lch-violet);
+  --button-bg-color-dark-hover: var(--lch-violet-dark);
 }
