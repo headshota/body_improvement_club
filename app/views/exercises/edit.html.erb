@@ -1,2 +1,13 @@
-<h1>Exercises#edit</h1>
-<p>Find me in app/views/exercises/edit.html.erb</p>
+<h1>Edit Exercise</h1>
+
+<%= form_with model: @exercise do |form| %>
+  <div>
+    <%= form.text_field :name, required: true, autofocus: true, autocomplete: false %>
+  </div>
+  <div>
+    <%= form.text_area :description, required: true %>
+  </div>
+  <div>
+    <%= form.submit 'Save Exercise', class: 'btn' %>
+  </div>
+<% end %>

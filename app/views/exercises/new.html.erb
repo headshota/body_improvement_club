@@ -2,7 +2,7 @@
 
 <%= form_with model: @exercise do |form| %>
   <div>
-    <%= form.text_field :title, required: true, autofocus: true, autocomplete: false %>
+    <%= form.text_field :name, required: true, autofocus: true, autocomplete: false %>
   </div>
   <div>
     <%= form.text_area :description, required: true %>
