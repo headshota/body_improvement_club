@@ -1,0 +1,27 @@
+.btn {
+  display: inline-block;
+  border: none;
+  vertical-align: middle;
+  overflow: hidden;
+  text-align: center;
+  padding: 6px 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: oklch(var(--default-font-color-dark));
+  background-color: oklch(var(--button-bg-color-light));
+}
+
+.btn:hover {
+  background-color: oklch(var(--button-bg-color-light-hover));
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    color: oklch(var(--default-font-color-dark));
+    background-color: oklch(var(--button-bg-color-dark));
+  }
+
+  .btn:hover {
+    background-color: oklch(var(--button-bg-color-dark-hover));
+  }
+}
