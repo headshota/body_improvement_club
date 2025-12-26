@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_13_182414) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_26_105349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,4 +20,27 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_13_182414) do
     t.string "name"
     t.datetime "updated_at", null: false
   end
+
+  create_table "performed_exercises", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "exercise_id"
+    t.integer "sort_order", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_performed_exercises_on_exercise_id"
+  end
+
+  create_table "performed_sets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "done_at"
+    t.integer "duration_in_seconds"
+    t.bigint "performed_exercise_id"
+    t.integer "performed_reps"
+    t.boolean "rest_after", default: true, null: false
+    t.float "rpe"
+    t.datetime "updated_at", null: false
+    t.index ["performed_exercise_id"], name: "index_performed_sets_on_performed_exercise_id"
+  end
+
+  add_foreign_key "performed_exercises", "exercises"
+  add_foreign_key "performed_sets", "performed_exercises"
 end
