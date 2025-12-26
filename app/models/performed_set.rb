@@ -1,0 +1,2 @@
+class PerformedSet < ApplicationRecord
+end
