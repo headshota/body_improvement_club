@@ -1,4 +1,4 @@
-@layer base, components;
+@layer base, components, utilities;
 
 :root {
   --breakpoint-tablet-and-up: 50rem;

@@ -4,12 +4,16 @@
 
 <% @exercises.each do |exercise| %>
   
-  <article>
-    <header>
-      <h3><%= exercise.name %></h3>
-    </header>
-    <p><%= exercise.description %></p>
-    <%= link_to 'Edit', edit_exercise_path(exercise), class: 'btn' %>
+  <article class="flex justify-space-between">
+    <div>
+      <header>
+        <h3><%= exercise.name %></h3>
+      </header>
+      <p><%= exercise.description %></p>
+    </div>
+    <div class="flex flex-column justify-center">
+      <%= link_to 'Edit', edit_exercise_path(exercise), class: 'btn' %>
+    </div>
   </article>
   
 <% end %>
