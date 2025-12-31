@@ -1,16 +1,20 @@
 @layer components {
 
   .btn {
+    --btn-border-radius: 99rem;
+
     display: inline-block;
     border: none;
     vertical-align: middle;
     overflow: hidden;
     text-align: center;
-    padding: 6px 18px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: var(--btn-border-radius);
     color: oklch(var(--default-font-color-dark));
-    background-color: oklch(var(--button-bg-color-light));
+    background-color: oklh(var(--btn-background, var(--button-bg-color-light)));
+    font-size: 1em;
+    font-weight: var(--btn-font-weight, 600);
+    padding: var(--btn-padding, 0.5em 1.1em);
   }
 
   .btn:hover {

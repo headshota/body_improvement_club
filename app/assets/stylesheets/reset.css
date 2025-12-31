@@ -1,0 +1,9 @@
+@layer reset {
+  body {
+    font-family: sans-serif;
+  }
+  
+  button {
+    font-family: inherit;
+  }
+}
