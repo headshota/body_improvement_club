@@ -2,6 +2,7 @@
   body {
     background: oklch(var(--canvas-color-light));
     color: oklch(var(--default-font-color-light));
+    font-family: sans-serif;
   }
 
   @media (prefers-color-scheme: dark) {
