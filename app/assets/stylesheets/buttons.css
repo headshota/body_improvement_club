@@ -3,7 +3,7 @@
   .btn {
     --btn-border-radius: 99rem;
 
-    display: inline-block;
+    display: inline-flex;
     border: none;
     vertical-align: middle;
     overflow: hidden;
@@ -15,6 +15,7 @@
     font-size: 1em;
     font-weight: var(--btn-font-weight, 600);
     padding: var(--btn-padding, 0.5em 1.1em);
+    cursor: pointer;
   }
 
   .btn:hover {

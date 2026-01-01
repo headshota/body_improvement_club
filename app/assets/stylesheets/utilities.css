@@ -1,6 +1,9 @@
 @layer utilites{
   .flex { display: flex; }
   .flex-column { flex-direction: column; }
+
+  .flex-inline { display: inline-flex; }
+
   .justify-end { justify-content: end; }
   .justify-start { justify-content: start; }
   .justify-center { justify-content: center; }
