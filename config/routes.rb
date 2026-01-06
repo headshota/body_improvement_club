@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :workouts
+  resources :workouts do
+    resources :performed_exercises
+  end
   resources :exercises
-  resources :performed_exercises
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
