@@ -384,7 +384,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  action_text-trix (~> 2.1.16)
   bootsnap
   brakeman
   bundler-audit
