@@ -1,3 +1,3 @@
 class Workout < ApplicationRecord
-  has_many :performed_exercises
+  has_many :performed_exercises, dependent: :destroy
 end
