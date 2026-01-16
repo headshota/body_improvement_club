@@ -1,9 +1,14 @@
 class Workout < ApplicationRecord
   has_many :performed_exercises, dependent: :destroy
   validates :name, presence: true
+  validates :started_at, presence: true
 
   before_validation :set_default_name
   before_validation :set_start_time
+
+  def self.current
+    Workout.where.not(started_at: nil).first
+  end
 
   private
 

@@ -12,4 +12,10 @@ class WorkoutTest < ActiveSupport::TestCase
       assert_equal(workout.started_at, Time.current)
     end
   end
+
+  test ".current returns already started workout" do
+    assert_equal(Workout.current, nil)
+    workout = Workout.create!
+    assert_equal(Workout.current, workout)
+  end
 end
