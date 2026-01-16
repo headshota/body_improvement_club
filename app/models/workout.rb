@@ -7,7 +7,8 @@ class Workout < ApplicationRecord
   before_validation :set_start_time
 
   def self.current
-    Workout.where.not(started_at: nil).first
+    Workout.where.not(started_at: nil)
+    .where(finished_at: nil).first
   end
 
   private

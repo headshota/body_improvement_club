@@ -3,19 +3,21 @@ require "test_helper"
 class WorkoutTest < ActiveSupport::TestCase
   test "sets default name if not provided during creation" do
     workout = Workout.create!
-    assert_equal(workout.name, "New Empty Workout")
+    assert_equal workout.name, "New Empty Workout"
   end
 
   test "sets start time of new workout to current time if not provided" do
     freeze_time do
       workout = Workout.create!
-      assert_equal(workout.started_at, Time.current)
+      assert_equal workout.started_at, Time.current
     end
   end
 
   test ".current returns already started workout" do
-    assert_equal(Workout.current, nil)
+    assert_nil Workout.current
+    Workout.create!(finished_at: Time.current)
+    assert_nil Workout.current
     workout = Workout.create!
-    assert_equal(Workout.current, workout)
+    assert_equal Workout.current, workout
   end
 end
