@@ -1,0 +1,18 @@
+require "test_helper"
+
+class WorkoutsTest < ActionDispatch::IntegrationTest
+  test "displays header for index page" do
+    get "/workouts"
+    assert_dom "h1", "Workout"
+  end
+  test "displays link for creating new workout" do
+    get "/workouts"
+    assert_dom "a", "Start New Workout"
+    refute_dom "a", "Continue Ongoing Workout"
+  end
+  test "When there is ongoing workout displays link to continue" do
+    Workout.create!
+    get "/workouts"
+    assert_dom "a", "Continue Ongoing Workout"
+  end
+end

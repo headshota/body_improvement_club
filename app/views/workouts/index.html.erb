@@ -1,3 +1,14 @@
 <h1>Workout</h1>
+<div>
+  <% if @current_workout.present? %>
+    <%= link_to "Continue Ongoing Workout", @current_workout, class: 'btn' %>
+  <% end %>
 
-<%= link_to "Start New Workout", new_workout_path, class: 'btn' %>
+  <%
+    data = { turbo_method: :post }
+    if @current_workout.present?
+      data[:turbo_confirm] = "Are you sure you want to start new workout and cancel the ongoing one?"
+    end
+  %>
+  <%= link_to "Start New Workout", Workout.new, class: 'btn', data: data %>
+</div>

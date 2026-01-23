@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :workouts do
+  resources :workouts, except: [ :new ] do
     resources :performed_exercises
   end
   resources :exercises
