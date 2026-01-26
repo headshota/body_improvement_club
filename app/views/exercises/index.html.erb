@@ -14,9 +14,7 @@
     <div class="flex flex-column justify-center">
       <div>
         <%= link_to 'Edit', edit_exercise_path(exercise), class: 'btn' %>
-        <div class="flex-inline">
-          <%= button_to "Delete", @exercise, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'btn' %>
-        </div>
+        <%= link_to "Delete", @exercise, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: 'btn' %>
       </div>
     </div>
   </article>

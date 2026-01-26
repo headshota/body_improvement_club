@@ -10,13 +10,13 @@ class WorkoutsTest < ActionDispatch::IntegrationTest
     assert_dom "a", "Start New Workout"
     refute_dom "a", "Continue Ongoing Workout"
   end
-  test "When there is ongoing workout displays link to continue" do
+  test "when there is ongoing displays link to continue" do
     Workout.create!
     get "/workouts"
     assert_dom "a", "Continue Ongoing Workout"
   end
 
-  test "Workout page displays a button for cancelling the workout" do
+  test "displays a button for cancelling the workout" do
     workout = Workout.create!
     get "/workouts/#{workout.id}"
     assert_dom "a", "Cancel Workout"
