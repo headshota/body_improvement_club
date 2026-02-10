@@ -1,5 +1,11 @@
 <h1><%= @workout.name %></h1>
 
+<div class="performed-exercises"></div>
+
 <div>
-  <%= link_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: 'btn' %>
+  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
+</div>
+
+<div>
+  <%= link_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn" %>
 </div>

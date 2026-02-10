@@ -1,1 +1,9 @@
-<h1>Create Performed Exercise</h1>
+<h1>Choose Exercise Type</h1>
+
+<div>
+  <%= form_with model: @performed_exercise, url: [@workout, @performed_exercise] do |f| %>
+  <% exercise_array = Exercise.all.map { |exercise| [ exercise.name, exercise.id ]} %>
+  <%= f.select :exercise, exercise_array %>  
+  <%= f.submit "Add Exercise" %>
+  <% end %>
+</div>
