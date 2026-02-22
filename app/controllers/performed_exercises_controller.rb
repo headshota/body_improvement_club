@@ -18,8 +18,8 @@ class PerformedExercisesController < ApplicationController
     PerformedExercise.create!(
       workout: workout,
       exercise: exercise
-      )
-    redirect_to workouts_path(workout)
+    )
+    redirect_to workout_path(workout)
   end
 
   def edit
