@@ -7,5 +7,13 @@
 </div>
 
 <div>
+  <% @workout.performed_exercises.each do |performed_exercise| %>
+    <article>
+      <header><%= performed_exercise.exercise.name %></header>
+    </article>
+  <% end %>
+</div>
+
+<div>
   <%= link_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn" %>
 </div>

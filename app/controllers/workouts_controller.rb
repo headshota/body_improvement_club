@@ -16,7 +16,9 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = Workout.find(params[:id])
+    @workout = Workout
+      .includes(performed_exercises: :exercise)
+      .find(params[:id])
   end
 
   def destroy
