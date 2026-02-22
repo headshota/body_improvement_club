@@ -1,5 +1,6 @@
 <h1>Choose Exercise Type</h1>
 
+<%= turbo_frame_tag "inline_add_exercise_frame" do %>
 <div>
   <%= form_with model: @performed_exercise, url: [@workout, @performed_exercise] do |f| %>
   <% exercise_array = Exercise.all.map { |exercise| [ exercise.name, exercise.id ]} %>
@@ -7,3 +8,4 @@
   <%= f.submit "Add Exercise" %>
   <% end %>
 </div>
+<% end %>

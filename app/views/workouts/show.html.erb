@@ -2,15 +2,20 @@
 
 <div class="performed-exercises"></div>
 
+<%= turbo_frame_tag "add_exercise_frame" do %>
 <div>
-  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
+  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), 
+    data: { turbo_frame: "inline_add_exercise_frame" },
+    class: "btn" %>
 </div>
-
+<% end %>
 <div>
+  <%= turbo_frame_tag "inline_add_exercise_frame" do %>
   <% @workout.performed_exercises.each do |performed_exercise| %>
     <article>
       <header><%= performed_exercise.exercise.name %></header>
     </article>
+  <% end %>
   <% end %>
 </div>
 
