@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :workouts, except: [ :new ] do
-    resources :performed_exercises
+    resources :performed_exercises do
+      resources :performed_sets, only: [ :create ]
+    end
   end
   resources :exercises
 

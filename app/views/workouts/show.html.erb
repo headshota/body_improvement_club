@@ -2,21 +2,22 @@
 
 <div class="performed-exercises"></div>
 
-<%= turbo_frame_tag "add_exercise_frame" do %>
 <div>
-  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), 
-    data: { turbo_frame: "inline_add_exercise_frame" },
-    class: "btn" %>
-</div>
-<% end %>
-<div>
-  <%= turbo_frame_tag "inline_add_exercise_frame" do %>
   <% @workout.performed_exercises.each do |performed_exercise| %>
-    <article>
+    <article style="padding: 5px 0;">
       <header><%= performed_exercise.exercise.name %></header>
+      <div>
+        <% performed_exercise.performed_sets.each do |performed_set| %>
+          <div>Set</div>
+        <% end %>
+      </div>
+      <%= link_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), data: { turbo_method: :post } %>
     </article>
   <% end %>
-  <% end %>
+</div>
+
+<div>
+  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
 </div>
 
 <div>

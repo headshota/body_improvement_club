@@ -17,7 +17,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout
-      .includes(performed_exercises: :exercise)
+      .includes(performed_exercises: [ :exercise, :performed_sets ])
       .find(params[:id])
   end
 
