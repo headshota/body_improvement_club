@@ -6,4 +6,8 @@ class PerformedSetsController < ApplicationController
 
     redirect_to workout_path(workout)
   end
+
+  def edit
+    @performed_set = PerformedSet.includes(performed_exercise: :workout).find(params[:id])
+  end
 end
