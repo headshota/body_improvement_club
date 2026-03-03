@@ -4,14 +4,15 @@
 
 <div>
   <% @workout.performed_exercises.each do |performed_exercise| %>
-    <article style="padding: 5px 0;">
-      <header><%= performed_exercise.exercise.name %></header>
+    <article style="padding: 5px 0;" class="flex justify-space-between">
       <div>
+        <header><%= performed_exercise.exercise.name %></header>
         <% performed_exercise.performed_sets.each do |performed_set| %>
           <div>Set</div>
         <% end %>
+        <%= link_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), data: { turbo_method: :post } %>
       </div>
-      <%= link_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), data: { turbo_method: :post } %>
+      <div><%= link_to "Remove Exercise", [@workout, performed_exercise], data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %></div>
     </article>
   <% end %>
 </div>

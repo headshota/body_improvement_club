@@ -28,6 +28,12 @@ class PerformedExercisesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    workout = Workout.find(params[:workout_id])
+    performed_exercise = PerformedExercise.includes(:performed_sets).find(params[:id])
+
+    performed_exercise.destroy!
+
+    redirect_to workout_path(workout)
   end
 end
