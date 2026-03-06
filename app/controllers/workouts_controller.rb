@@ -22,7 +22,7 @@ class WorkoutsController < ApplicationController
   end
 
   def destroy
-    workout = Workout.find(params[:id])
+    workout = Workout.includes(:performed_exercises).find(params[:id])
     workout.destroy!
     redirect_to workouts_path
   end
