@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "edit_workout_title" do %>
+  <%= form_with model: @workout do |form| %>
+  <div>
+    <%= form.text_field :name, required: true, autofocus: true, autocomplete: false, class: "input" %>
+  </div>
+  <div>
+    <%= form.submit 'Save', class: 'btn' %>
+  </div>
+  <% end %>
+<% end %>

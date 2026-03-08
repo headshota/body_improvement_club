@@ -1,4 +1,8 @@
-<h1><%= @workout.name %></h1>
+<%= turbo_frame_tag "edit_workout_title" do %>
+<h1>
+<%= link_to @workout.name, edit_workout_path(@workout) %>
+</h1>
+<% end %>
 
 <div>
   <% @workout.performed_exercises.each do |performed_exercise| %>
