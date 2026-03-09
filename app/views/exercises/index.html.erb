@@ -1,6 +1,6 @@
 <h1>Exercises</h1>
 
-<%= link_to 'Create Exercise', new_exercise_path, class: 'btn' %>
+<%= link_to "Create Exercise", new_exercise_path, class: "btn" %>
 
 <% @exercises.each do |exercise| %>
   
@@ -13,8 +13,8 @@
     </div>
     <div class="flex flex-column justify-center">
       <div>
-        <%= link_to 'Edit', edit_exercise_path(exercise), class: 'btn' %>
-        <%= link_to "Delete", @exercise, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: 'btn' %>
+        <%= link_to 'Edit', edit_exercise_path(exercise), class: "btn" %>
+        <%= button_to "Delete", @exercise, data: { turbo_confirm: "Are you sure?" }, method: :delete, class: "btn", form_class: "button_to-inline" %>
       </div>
     </div>
   </article>

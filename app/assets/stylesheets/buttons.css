@@ -32,4 +32,8 @@
       background-color: oklch(var(--button-bg-color-dark-hover));
     }
   }
+  
+  .button_to-inline {
+    display: inline;
+  }
 }
