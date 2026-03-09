@@ -12,9 +12,9 @@
     <article style="padding: 5px 0;" class="flex justify-space-between">
       <div>
         <header><%= performed_exercise.exercise.name %></header>
-        <% performed_exercise.performed_sets.each do |performed_set| %>
+        <% performed_exercise.performed_sets.each_with_index do |performed_set, index| %>
           <div class="flex">
-            <div>Set <%= performed_set.id %></div>
+            <div>Set <%= index + 1 %></div>
             <div><%= link_to "Edit", edit_workout_performed_exercise_performed_set_path(@workout, performed_exercise, performed_set), class: "btn" %></div>
             <div><%= button_to "Delete", [@workout, performed_exercise, performed_set], method: :delete, class: "btn" %></div>
           </div>
