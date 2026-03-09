@@ -9,4 +9,14 @@ class PerformedSetsController < ApplicationController
   def edit
     @performed_set = PerformedSet.includes(performed_exercise: :workout).find(params[:id])
   end
+
+  def destroy
+    performed_set = PerformedSet.includes(performed_exercise: :workout).find(params[:id])
+    workout = performed_set.performed_exercise.workout
+
+
+    performed_set.destroy!
+
+    redirect_to workout_path(workout)
+  end
 end
