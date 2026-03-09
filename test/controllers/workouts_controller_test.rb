@@ -24,7 +24,9 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     performed_exercise = workout.performed_exercises.create!(exercise: exercise)
     performed_exercise.performed_sets.create!(performed_exercise: performed_exercise)
 
-    delete workout_path(workout)
+    assert_difference -> { Workout.count }, -1 do
+      delete workout_path(workout)
+    end
     assert_redirected_to workouts_path
   end
 end
