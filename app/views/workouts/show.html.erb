@@ -1,7 +1,10 @@
-<%= turbo_frame_tag "edit_workout_title" do %>
-<h1>
-<%= link_to @workout.name, edit_workout_path(@workout) %>
-</h1>
+<% frame_id = dom_id(@workout, "name_turbo_frame") %>
+<%= form_with model: @workout, data: { turbo_frame: frame_id } do |form| %>
+  <%= turbo_frame_tag frame_id do %>
+    <h1>
+    <%= link_to @workout.name, edit_workout_path(@workout) %>
+    </h1>
+  <% end %>
 <% end %>
 
 <div>
