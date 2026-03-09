@@ -16,7 +16,7 @@
             <div><%= button_to "Delete", [@workout, performed_exercise, performed_set], method: :delete, class: "btn" %></div>
           </div>
         <% end %>
-        <%= link_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), data: { turbo_method: :post } %>
+        <%= button_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), method: :post, class: "btn" %>
       </div>
       <div><%= button_to "Remove Exercise", [@workout, performed_exercise], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %></div>
     </article>
