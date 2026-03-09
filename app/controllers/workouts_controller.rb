@@ -41,6 +41,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit!
+    params.expect(workout: [ :name ])
   end
 end
