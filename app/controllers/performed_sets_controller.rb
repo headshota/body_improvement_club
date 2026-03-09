@@ -8,6 +8,8 @@ class PerformedSetsController < ApplicationController
 
   def edit
     @performed_set = PerformedSet.includes(performed_exercise: :workout).find(params[:id])
+    @performed_exercise = @performed_set.performed_exercise
+    @workout = @performed_exercise.workout
   end
 
   def update

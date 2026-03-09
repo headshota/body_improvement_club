@@ -1,0 +1,27 @@
+<h1>Edit Set</h1>
+<table>
+  <thead>
+    <td>Previous</td>
+    <td>Kg</td>
+    <td>Reps</td>
+    <td>Done?</td>
+  </thead>
+  <tbody>
+    <td>N/A</td>
+    <td>
+      <%= form_with model: [@workout, @performed_exercise, @performed_set] do |form| %>
+        <%= form.text_field :weight %>
+      <% end %>
+    </td>
+    <td>
+      <%= form_with model: [@workout, @performed_exercise, @performed_set] do |form| %>
+        <%= form.text_field :performed_reps %>
+      <% end %>
+    </td>
+    <td>
+      <%= form_with model: [@workout, @performed_exercise, @performed_set] do |form| %>
+        <%= form.submit "Done" %>
+      <% end %>
+    </td>
+  </tbody>
+</table>
