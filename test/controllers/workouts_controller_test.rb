@@ -20,6 +20,10 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
   test "destroy workout" do
     workout = workouts(:finished)
+    exercise = exercises(:barbell_squat)
+    performed_exercise = workout.performed_exercises.create!(exercise: exercise)
+    performed_exercise.performed_sets.create!(performed_exercise: performed_exercise)
+
     delete workout_path(workout)
     assert_redirected_to workouts_path
   end
