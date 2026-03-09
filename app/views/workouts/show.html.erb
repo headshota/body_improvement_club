@@ -28,5 +28,5 @@
 </div>
 
 <div>
-  <%= link_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn" %>
+  <%= button_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?" }, method: :delete, class: "btn" %>
 </div>
