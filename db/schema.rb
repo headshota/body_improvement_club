@@ -39,7 +39,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_09_162756) do
     t.boolean "rest_after", default: true, null: false
     t.float "rpe"
     t.datetime "updated_at", null: false
-    t.decimal "weight", precision: 4
+    t.decimal "weight", precision: 8, scale: 4
     t.index ["performed_exercise_id"], name: "index_performed_sets_on_performed_exercise_id"
   end
 
