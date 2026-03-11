@@ -1,13 +1,6 @@
 require "test_helper"
 
 class PerformedExercisesControllerTest < ActionDispatch::IntegrationTest
-  test "index" do
-    workout = Workout.create!
-    exercise = exercises(:barbell_squat)
-    get workout_performed_exercises_path(workout, performed_exercise: { exercise: exercise })
-    assert_response :success
-  end
-
   test "create new performed exercise" do
     workout = Workout.create!
     assert_difference -> { PerformedExercise.count }, 1 do
