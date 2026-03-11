@@ -3,12 +3,12 @@
   <td>N/A</td>
   <td>
     <%= form_with model: [workout, performed_exercise, performed_set] do |form| %>
-      <%= form.text_field :weight, value: number_with_precision(form.object.weight, strip_insignificant_zeros: true), onfocusout: "this.form.submit()" %>
+      <%= form.text_field :weight, value: number_with_precision(form.object.weight, strip_insignificant_zeros: true), onfocusout: "this.form.submit()", size: 5 %>
     <% end %>
   </td>
   <td>
     <%= form_with model: [workout, performed_exercise, performed_set] do |form| %>
-      <%= form.text_field :performed_reps %>
+      <%= form.text_field :performed_reps, onfocusout: "this.form.submit()", size: 5 %>
     <% end %>
   </td>
   <td>

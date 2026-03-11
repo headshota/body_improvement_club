@@ -9,9 +9,11 @@
 
 <div>
   <% @workout.performed_exercises.each do |performed_exercise| %>
-    <article style="padding: 5px 0;" class="flex justify-space-between">
-      <div>
+    <div style="padding: 5px 0;">
+      <div class="flex justify-space-between">
         <header><%= performed_exercise.exercise.name %></header>
+        <div><%= link_to "Remove Exercise", [@workout, performed_exercise], data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>
+      </div>
 
       <table>
         <thead>
@@ -22,13 +24,12 @@
           <td></td>
         </thead>
         <tbody>
-        <%= render partial: "performed_sets/performed_set_inline", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
+          <%= render partial: "performed_sets/performed_set_inline", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
         </tbody>
         </table>
         <%= button_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), method: :post, class: "btn" %>
       </div>
-      <div><%= button_to "Remove Exercise", [@workout, performed_exercise], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %></div>
-    </article>
+    </div>
   <% end %>
 </div>
 
