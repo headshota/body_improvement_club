@@ -9,7 +9,7 @@
 
 <div>
   <% @workout.performed_exercises.each do |performed_exercise| %>
-    <div style="padding: 5px 0;">
+    <div style="padding: 10px 0;">
       <div class="flex justify-space-between">
         <header><%= performed_exercise.exercise.name %></header>
         <div><%= link_to "Remove Exercise", [@workout, performed_exercise], data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>
@@ -26,7 +26,7 @@
             <td></td>
           </thead>
           <tbody id="<%= dom_id(performed_exercise, "performed_sets_table") %>">
-            <%= render partial: "performed_sets/performed_set_inline", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
+            <%= render partial: "performed_sets/performed_set", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
           </tbody>
         </table>
       <% end %>

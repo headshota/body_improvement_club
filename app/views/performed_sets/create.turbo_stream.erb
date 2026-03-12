@@ -1,0 +1,2 @@
+<%= turbo_stream.append dom_id(@performed_exercise, "performed_sets_table"), partial: "performed_sets/performed_set", locals: { 
+  performed_set: @performed_set, workout: @workout, performed_exercise: @performed_exercise, performed_set_counter: @performed_set_count - 1} %>
