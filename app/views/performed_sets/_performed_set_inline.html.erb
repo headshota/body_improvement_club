@@ -1,5 +1,6 @@
-<%# locals: (workout:, performed_exercise:, performed_set:) %>
+<%# locals: (workout:, performed_exercise:, performed_set:, performed_set_counter:) %>
 <tr id="<%= dom_id(performed_set, "row") %>">
+  <td><%= performed_set_counter + 1 %></td>
   <td>N/A</td>
   <td>
     <%= turbo_frame_tag dom_id(performed_set, "weight") do %>
