@@ -20,8 +20,10 @@
     <% end %>
   </td>
   <td>
-    <%= form_with model: [workout, performed_exercise, performed_set] do |form| %>
-      <%= form.submit "Done" %>
+    <%= turbo_frame_tag dom_id(performed_set, "done") do %>
+      <%= form_with model: [workout, performed_exercise, performed_set] do |form| %>
+        <%= form.check_box "done", onchange: "this.form.requestSubmit()" %>
+      <% end %>
     <% end %>
   </td>
   <td>

@@ -40,6 +40,6 @@ class PerformedSetsController < ApplicationController
   private
 
   def performed_set_params
-    params.expect(performed_set: [ :performed_reps, :weight, :rpe, :done_at ])
+    params.expect(performed_set: [ :performed_reps, :weight, :rpe, :done ])
   end
 end
