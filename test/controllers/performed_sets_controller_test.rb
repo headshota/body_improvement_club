@@ -11,7 +11,6 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to workout_path(workout)
   end
 
-
   test "destroy" do
     workout = Workout.create!
     exercise = exercises(:barbell_squat)
@@ -44,7 +43,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
 
     freeze_time do
       patch workout_performed_exercise_performed_set_path(workout, performed_exercise, performed_set),
-      params: { performed_set: { done_at: Time.zone.now, performed_reps: 5, rpe: 8 } }
+      params: { performed_set: { done: "1", performed_reps: 5, rpe: 8 } }
 
       assert_redirected_to workout_path(workout)
 

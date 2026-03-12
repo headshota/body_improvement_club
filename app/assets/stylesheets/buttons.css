@@ -1,7 +1,7 @@
 @layer components {
 
   .btn {
-    --btn-border-radius: 99rem;
+    --btn-border-radius: 0.2rem;
 
     display: inline-flex;
     border: none;

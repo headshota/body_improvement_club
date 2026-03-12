@@ -32,7 +32,7 @@ class PerformedSetsController < ApplicationController
     @performed_set.destroy!
 
     respond_to do |format|
-      format.html { redirect_to workout_path(@workout) }
+      format.html { redirect_to workout_path(workout) }
       format.turbo_stream
     end
   end
