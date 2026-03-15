@@ -7,40 +7,14 @@
   <% end %>
 <% end %>
 
-<div>
-  <% @workout.performed_exercises.each do |performed_exercise| %>
-    <div style="padding: 10px 0;">
-      <div class="flex justify-space-between">
-        <header><%= performed_exercise.exercise.name %></header>
-        <div><%= link_to "Remove Exercise", [@workout, performed_exercise], data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>
-      </div>
-      <% set_list_frame_id = dom_id(performed_exercise, "sets_turbo_frame") %>
-      <%= turbo_frame_tag set_list_frame_id do %>
-        <table>
-          <thead>
-            <td>#</td>
-            <td>Previous</td>
-            <td>Kg</td>
-            <td>Reps</td>
-            <td>Done?</td>
-            <td></td>
-          </thead>
-          <tbody id="<%= dom_id(performed_exercise, "performed_sets_table") %>">
-            <%= render partial: "performed_sets/performed_set", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
-          </tbody>
-        </table>
-      <% end %>
-      <div>
-        <%= button_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), method: :post, class: "btn", form: { data: { turbo_frame: set_list_frame_id }} %>
-      </div>
-    </div>
-  <% end %>
+<div id="performed_exercises">
+  <%= render  partial: "performed_exercises/performed_exercise", collection: @workout.performed_exercises, locals: { workout: @workout } %>
 </div>
 
 <div>
   <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
 </div>
 
-<div>
+<div style="margin: 10px 0;">
   <%= button_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?" }, method: :delete, class: "btn" %>
 </div>

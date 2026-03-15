@@ -24,11 +24,14 @@ class PerformedExercisesController < ApplicationController
   end
 
   def destroy
-    performed_exercise = PerformedExercise
+    @performed_exercise = PerformedExercise
     .includes(:performed_sets, :workout).find(params[:id])
 
-    performed_exercise.destroy!
+    @performed_exercise.destroy!
 
-    redirect_to workout_path(performed_exercise.workout)
+    respond_to do |format|
+      format.html { redirect_to workout_path(@performed_exercise.workout) }
+      format.turbo_stream
+    end
   end
 end
