@@ -14,7 +14,7 @@ class PerformedExercisesController < ApplicationController
       workout: workout,
       exercise: exercise
     )
-    redirect_to workout_path(workout)
+    redirect_to edit_workout_path(workout)
   end
 
   def edit
@@ -30,7 +30,7 @@ class PerformedExercisesController < ApplicationController
     @performed_exercise.destroy!
 
     respond_to do |format|
-      format.html { redirect_to workout_path(@performed_exercise.workout) }
+      format.html { redirect_to edit_workout_path(@performed_exercise.workout) }
       format.turbo_stream
     end
   end

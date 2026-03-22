@@ -8,6 +8,6 @@ class PerformedExercisesControllerTest < ActionDispatch::IntegrationTest
       post workout_performed_exercises_path(workout, performed_exercise: { exercise: exercise })
     end
 
-    assert_redirected_to workout_path(workout)
+    assert_redirected_to edit_workout_path(workout)
   end
 end
