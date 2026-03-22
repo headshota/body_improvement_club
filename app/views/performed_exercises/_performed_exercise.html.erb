@@ -4,7 +4,7 @@
     <header><%= performed_exercise.exercise.name %></header>
     <div>
       <%= turbo_frame_tag dom_id(performed_exercise, "remove") do %>
-        <%= button_to "Remove Exercise", [@workout, performed_exercise], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %>
+        <%= button_to "Remove Exercise", performed_exercise, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %>
       <% end %>
     </div>
   </div>
@@ -20,11 +20,11 @@
         <td></td>
       </thead>
       <tbody id="<%= dom_id(performed_exercise, "performed_sets_table") %>">
-        <%= render partial: "performed_sets/performed_set", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: @workout, performed_exercise: performed_exercise } %>
+        <%= render partial: "performed_sets/performed_set", collection: performed_exercise.performed_sets.order(:created_at), as: :performed_set, locals: { workout: workout, performed_exercise: performed_exercise } %>
       </tbody>
     </table>
   <% end %>
   <div>
-    <%= button_to "Add Set", workout_performed_exercise_performed_sets_path(@workout, performed_exercise), method: :post, class: "btn", form: { data: { turbo_frame: set_list_frame_id }} %>
+    <%= button_to "Add Set", performed_exercise_performed_sets_path(performed_exercise), method: :post, class: "btn", form: { data: { turbo_frame: set_list_frame_id }} %>
   </div>
 </div>

@@ -1,8 +1,8 @@
-<div><%= link_to "Cancel", workout_path(@workout) %></div>
+<div><%= link_to "Cancel", edit_workout_path(@workout) %></div>
 <div>
   <%= form_with model: @performed_exercise, url: [@workout, @performed_exercise] do |f| %>
   <% exercise_array = Exercise.all.map { |exercise| [ exercise.name, exercise.id ]} %>
-  <%= f.select :exercise, exercise_array %>  
+  <%= f.select :exercise, exercise_array %>
   <%= f.submit "Add Exercise" %>
   <% end %>
 </div>

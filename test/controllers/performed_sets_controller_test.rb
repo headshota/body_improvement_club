@@ -6,7 +6,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
     exercise = exercises(:barbell_squat)
     performed_exercise = workout.performed_exercises.create!(exercise: exercise)
     assert_difference -> { PerformedSet.count }, 1 do
-      post workout_performed_exercise_performed_sets_path(workout, performed_exercise)
+      post performed_exercise_performed_sets_path(performed_exercise)
     end
     assert_redirected_to workout_path(workout)
   end
@@ -18,7 +18,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
     performed_set = performed_exercise.performed_sets.create!
 
     assert_difference -> { PerformedSet.count }, -1 do
-      delete workout_performed_exercise_performed_set_path(workout, performed_exercise, performed_set)
+      delete performed_set_path(performed_set)
     end
 
     assert_redirected_to workout_path(workout)
@@ -31,7 +31,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
     performed_set = performed_exercise.performed_sets.create!
 
     freeze_time do
-      patch workout_performed_exercise_performed_set_path(workout, performed_exercise, performed_set),
+      patch performed_set_path(performed_set),
       params: { performed_set: { done: "1", performed_reps: 5, rpe: 8 } }
 
       assert_redirected_to workout_path(workout)
