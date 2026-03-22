@@ -1,7 +1,13 @@
-<%= form_with model: @workout do |form| %>
-  <%= turbo_frame_tag dom_id(@workout, "name_turbo_frame") do %>
-  <div>
-    <%= form.text_field :name, required: true, autofocus: true, autocomplete: false, class: "input", onfocusout: 'this.form.requestSubmit()' %>
-  </div>
-  <% end %>
-<% end %>
+<%= render partial: "workout_name", locals: { workout: @workout, name_form_visible: @name_form_visible  } %>
+
+<div id="performed_exercises">
+  <%= render  partial: "performed_exercises/performed_exercise", collection: @workout.performed_exercises, locals: { workout: @workout } %>
+</div>
+
+<div>
+  <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
+</div>
+
+<div style="margin: 10px 0;">
+  <%= button_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?" }, method: :delete, class: "btn" %>
+</div>

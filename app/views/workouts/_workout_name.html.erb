@@ -1,0 +1,19 @@
+<%# locals: (workout:, name_form_visible: false) %>
+<% if name_form_visible %>
+  <%= form_with model: @workout do |form| %>
+    <%= turbo_frame_tag dom_id(@workout, "name_turbo_frame") do %>
+    <div>
+      <%= form.text_field :name, required: true, autofocus: true, autocomplete: false, class: "input", onfocusout: 'this.form.requestSubmit()' %>
+    </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <% frame_id = dom_id(@workout, "name_turbo_frame") %>
+  <%= form_with model: @workout, data: { turbo_frame: frame_id } do |form| %>
+    <%= turbo_frame_tag frame_id do %>
+      <h1>
+      <%= link_to @workout.name, edit_workout_path(@workout, name_form_visible: true) %>
+      </h1>
+    <% end %>
+  <% end %>
+<% end %>

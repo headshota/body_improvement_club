@@ -1,7 +1,7 @@
 <h1>Workout</h1>
 <div>
   <% if @current_workout.present? %>
-    <%= link_to "Continue Ongoing Workout", @current_workout, class: "btn" %>
+    <%= link_to "Continue Ongoing Workout", edit_workout_path(@current_workout), class: "btn" %>
   <% end %>
 
   <%

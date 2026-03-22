@@ -12,24 +12,24 @@ class WorkoutsController < ApplicationController
 
     @workout = Workout.create!
 
-    redirect_to @workout
+    redirect_to edit_workout_path(@workout)
   end
 
   def show
-    @workout = Workout
-      .includes(performed_exercises: [ :exercise, :performed_sets ])
-      .find(params[:id])
   end
 
   def edit
-    @workout = Workout.find(params[:id])
+    @workout = Workout
+      .includes(performed_exercises: [ :exercise, :performed_sets ])
+      .find(params[:id])
+    @name_form_visible = (params[:name_form_visible].to_s == "true") || false
   end
 
   def update
     @workout = Workout.find(params[:id])
     @workout.update!(workout_params)
 
-    redirect_to @workout
+    redirect_to edit_workout_path(@workout)
   end
 
   def destroy

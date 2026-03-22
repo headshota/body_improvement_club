@@ -11,7 +11,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     end
 
     created_workout = Workout.last
-    assert_redirected_to workout_path(created_workout)
+    assert_redirected_to edit_workout_path(created_workout)
   end
   test "show" do
     workout = Workout.create!

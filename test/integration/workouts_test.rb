@@ -18,7 +18,7 @@ class WorkoutsTest < ActionDispatch::IntegrationTest
 
   test "displays a button for cancelling the workout" do
     workout = Workout.create!
-    get "/workouts/#{workout.id}"
+    get "/workouts/#{workout.id}/edit"
     assert_dom "button", "Cancel Workout"
   end
 end
