@@ -22,7 +22,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout
       .includes(performed_exercises: [ :exercise, :performed_sets ])
       .find(params[:id])
-    @name_form_visible = (params[:name_form_visible].to_s == "true") || false
+    @name_form_visible = params[:name_form_visible].to_s == "true"
   end
 
   def update
