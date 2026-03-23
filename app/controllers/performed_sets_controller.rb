@@ -16,7 +16,7 @@ class PerformedSetsController < ApplicationController
     workout = performed_set.performed_exercise.workout
 
     performed_set.update!(performed_set_params)
-    redirect_to workout
+    redirect_to edit_workout_path(workout)
   end
 
   def destroy

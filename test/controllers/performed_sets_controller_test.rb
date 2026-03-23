@@ -34,7 +34,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
       patch performed_set_path(performed_set),
       params: { performed_set: { done: "1", performed_reps: 5, rpe: 8 } }
 
-      assert_redirected_to workout_path(workout)
+      assert_redirected_to edit_workout_path(workout)
 
       performed_set.reload
       assert_equal 5, performed_set.performed_reps
