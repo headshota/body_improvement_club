@@ -19,9 +19,21 @@ class SmokeTest < ApplicationSystemTestCase
     select "Barbell Squat", from: "performed_exercise_exercise"
     click_on "Add Exercise"
 
-    # TODO: assert something here?
+    assert_selector "header", text: "Barbell Squat"
 
     # Add Set to the new exercise
     click_on "Add Set"
+
+    # Enter set values
+    find_field("performed_set[weight]").fill_in with: "120"
+    find_field("performed_set[performed_reps]").fill_in with: "5"
+    find_field("performed_set[done]").check
+
+    # Check if values persist after page reload
+    refresh
+
+    assert "120", find_field("performed_set[weight]").value
+    assert "5", find_field("performed_set[performed_reps]").value
+    find_field("performed_set[done]").has_checked_field?
   end
 end
