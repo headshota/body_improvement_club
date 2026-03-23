@@ -21,7 +21,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
       delete performed_set_path(performed_set)
     end
 
-    assert_redirected_to workout_path(workout)
+    assert_redirected_to edit_workout_path(workout)
   end
 
   test "update" do

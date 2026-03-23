@@ -28,6 +28,6 @@
     <% end %>
   </td>
   <td>
-    <div><%= button_to "Delete", performed_set, method: :delete, class: "btn" %></div>
+    <div><%= button_to "Delete", performed_set, method: :delete, class: "btn", data: { turbo_frame: dom_id(performed_exercise, "sets_turbo_frame") } %></div>
   </td>
 </tr>

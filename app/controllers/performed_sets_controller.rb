@@ -23,13 +23,9 @@ class PerformedSetsController < ApplicationController
     @performed_set = PerformedSet.includes(performed_exercise: :workout).find(params[:id])
     workout = @performed_set.performed_exercise.workout
 
-
     @performed_set.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to workout_path(workout) }
-      format.turbo_stream
-    end
+    redirect_to edit_workout_path(workout)
   end
 
   private
