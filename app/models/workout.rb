@@ -11,6 +11,10 @@ class Workout < ApplicationRecord
     .where(finished_at: nil).first
   end
 
+  def finish!
+    update(finished_at: Time.zone.now)
+  end
+
   private
 
   def set_default_name

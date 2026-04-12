@@ -20,4 +20,13 @@ class WorkoutTest < ActiveSupport::TestCase
     workout = Workout.create!
     assert_equal workout, Workout.current
   end
+
+  test "#finish marks workout as finished by setting finished_at field" do
+    workout = Workout.create!
+
+    freeze_time do
+      workout.finish!
+      assert_equal Time.current, workout.finished_at
+    end
+  end
 end
