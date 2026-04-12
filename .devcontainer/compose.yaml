@@ -21,6 +21,9 @@ services:
     - selenium
     - postgres
 
+    ports:
+      - "3000:3000"
+
   selenium:
     image: selenium/standalone-chromium
     restart: unless-stopped
