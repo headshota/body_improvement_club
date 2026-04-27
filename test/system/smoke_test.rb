@@ -32,8 +32,14 @@ class SmokeTest < ApplicationSystemTestCase
     # Check if values persist after page reload
     refresh
 
-    assert "120", find_field("performed_set[weight]").value
-    assert "5", find_field("performed_set[performed_reps]").value
+    assert_equal "120", find_field("performed_set[weight]").value
+    assert_equal "5", find_field("performed_set[performed_reps]").value
     find_field("performed_set[done]").has_checked_field?
+
+    confirm_message = accept_confirm do
+      click_on "Finish Workout"
+    end
+
+    assert_equal "Are you sure?", confirm_message
   end
 end

@@ -8,6 +8,7 @@
   <%= link_to "Add Exercise", new_workout_performed_exercise_path(@workout.id), class: "btn" %>
 </div>
 
-<div style="margin: 10px 0;">
+<div style="margin: 10px 0;" class="flex">
+  <%= button_to "Finish Workout", @workout, data: { turbo_confirm: "Are you sure?" }, method: :patch, class: "btn", params: { finish_workout: true } %>
   <%= button_to "Cancel Workout", @workout, data: { turbo_confirm: "Are you sure?" }, method: :delete, class: "btn" %>
 </div>
