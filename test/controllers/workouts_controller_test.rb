@@ -5,6 +5,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     get workouts_path
     assert_response :success
   end
+
   test "create new workout" do
     assert_difference -> { Workout.count }, 1 do
       post workouts_path
@@ -13,11 +14,13 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     created_workout = Workout.last
     assert_redirected_to edit_workout_path(created_workout)
   end
+
   test "show" do
     workout = Workout.create!
     get workouts_path(workout)
     assert_response :success
   end
+
   test "destroy workout" do
     workout = workouts(:finished)
     exercise = exercises(:barbell_squat)
@@ -29,4 +32,5 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to workouts_path
   end
+
 end
