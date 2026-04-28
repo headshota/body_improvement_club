@@ -32,5 +32,4 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to workouts_path
   end
-
 end
