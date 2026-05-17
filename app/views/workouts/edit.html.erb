@@ -1,6 +1,6 @@
 <%= render partial: "workout_name", locals: { workout: @workout, name_form_visible: @name_form_visible  } %>
 
-<div id="performed_exercises">
+<div data-controller="sortable" id="performed_exercises">
   <%= render  partial: "performed_exercises/performed_exercise", collection: @workout.performed_exercises, locals: { workout: @workout } %>
 </div>
 
