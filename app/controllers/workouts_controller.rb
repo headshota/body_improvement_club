@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout
       .includes(performed_exercises: [ :exercise, :performed_sets ])
       .find(params[:id])
-    @name_form_visible = params[:name_form_visible].to_s == "true"
+    @name_form_visible = show_name_form?
   end
 
   def update
@@ -36,5 +36,9 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.expect(workout: [ :name ])
+  end
+
+  def show_name_form?
+    params[:name_form_visible].to_s == "true"
   end
 end
