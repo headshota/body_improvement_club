@@ -11,6 +11,13 @@ class Workout < ApplicationRecord
     .where(finished_at: nil).first
   end
 
+  def self.start_new!
+    transaction do
+      current&.destroy!
+      create!
+    end
+  end
+
   def finish!
     update(finished_at: Time.zone.now)
   end

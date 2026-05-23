@@ -4,13 +4,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @current_workout = Workout.current
-
-    if !@current_workout.blank?
-      @current_workout.destroy
-    end
-
-    @workout = Workout.create!
+    @workout = Workout.start_new!
 
     redirect_to edit_workout_path(@workout)
   end
