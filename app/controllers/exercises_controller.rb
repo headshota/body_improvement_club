@@ -28,6 +28,6 @@ class ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.expect(exercise: [:name, :description])
+    params.expect(exercise: [ :name, :description ])
   end
 end
