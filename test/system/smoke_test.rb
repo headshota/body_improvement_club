@@ -34,7 +34,7 @@ class SmokeTest < ApplicationSystemTestCase
 
     assert_equal "120", find_field("performed_set[weight]").value
     assert_equal "5", find_field("performed_set[performed_reps]").value
-    find_field("performed_set[done]").has_checked_field?
+    assert_checked_field("performed_set[done]")
 
     confirm_message = accept_confirm do
       click_on "Finish Workout"
