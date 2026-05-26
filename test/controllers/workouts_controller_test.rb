@@ -17,7 +17,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
 
   test "show" do
     workout = Workout.create!
-    get workouts_path(workout)
+    get workout_path(workout)
     assert_response :success
   end
 
