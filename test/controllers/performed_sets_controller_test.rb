@@ -12,10 +12,8 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "destroy" do
-    workout = Workout.create!
-    exercise = exercises(:barbell_squat)
-    performed_exercise = workout.performed_exercises.create!(exercise: exercise)
-    performed_set = performed_exercise.performed_sets.create!
+    performed_set = performed_sets(:performed_squat_set_one)
+    workout = performed_set.performed_exercise.workout
 
     assert_difference -> { PerformedSet.count }, -1 do
       delete performed_set_path(performed_set)

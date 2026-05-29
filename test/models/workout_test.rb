@@ -14,8 +14,9 @@ class WorkoutTest < ActiveSupport::TestCase
   end
 
   test ".current returns already started workout" do
-    assert_nil Workout.current
-    Workout.create!(finished_at: Time.current)
+    workout = workouts(:ongoing)
+    assert_equal Workout.current, workout
+    workout.update!(finished_at: Time.current)
     assert_nil Workout.current
     workout = Workout.create!
     assert_equal workout, Workout.current

@@ -7,6 +7,7 @@ class WorkoutsTest < ActionDispatch::IntegrationTest
   end
 
   test "displays link for creating new workout" do
+    workouts(:ongoing).destroy!
     get workouts_path
     assert_dom "a", "Start New Workout"
     refute_dom "a", "Continue Ongoing Workout"

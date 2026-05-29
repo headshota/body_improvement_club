@@ -7,6 +7,8 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "create new workout" do
+    workouts(:ongoing).destroy!
+
     assert_difference -> { Workout.count }, 1 do
       post workouts_path
     end

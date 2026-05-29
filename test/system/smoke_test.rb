@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class SmokeTest < ApplicationSystemTestCase
   test "Do Workout" do
+    workouts(:ongoing).destroy!
     visit workouts_path
     click_on "Start New Workout"
 

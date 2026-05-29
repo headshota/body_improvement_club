@@ -1,5 +1,7 @@
 finished:
-  id: 1
   name: Finished Workout
   started_at: "2026-01-01 12:02"
   finished_at: "2026-01-01 13:01"
+ongoing:
+  name: Ongoing Workout
+  started_at: "2026-01-01 12:02"
