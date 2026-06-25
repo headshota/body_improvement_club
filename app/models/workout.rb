@@ -19,6 +19,6 @@ class Workout < ApplicationRecord
   end
 
   def finish!
-    update(finished_at: Time.zone.now)
+    update(finished_at: Time.current)
   end
 end

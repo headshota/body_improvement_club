@@ -34,4 +34,12 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to workouts_path
   end
+
+  test "finish workout" do
+    workout = workouts(:ongoing)
+
+    assert_changes -> { workout.reload.finished_at? }, from: false, to: true do
+      patch workout_path(workout), params: { finish_workout: "1" }
+    end
+  end
 end

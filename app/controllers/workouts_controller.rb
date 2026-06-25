@@ -21,7 +21,13 @@ class WorkoutsController < ApplicationController
 
   def update
     @workout = Workout.find(params[:id])
-    @workout.update!(workout_params)
+
+    if finish_workout?
+      @workout.finish!
+      redirect_to workouts_path and return
+    else
+      @workout.update!(workout_params)
+    end
 
     redirect_to edit_workout_path(@workout)
   end
@@ -40,5 +46,9 @@ class WorkoutsController < ApplicationController
 
   def show_name_form?
     params[:name_form_visible].to_s == "true"
+  end
+
+  def finish_workout?
+    params[:finish_workout].present?
   end
 end
