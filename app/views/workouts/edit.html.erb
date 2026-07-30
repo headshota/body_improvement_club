@@ -1,7 +1,7 @@
 <%= render partial: "workout_name", locals: { workout: @workout, name_form_visible: @name_form_visible  } %>
 
-<div data-controller="sortable" id="performed_exercises">
-  <%= render  partial: "performed_exercises/performed_exercise", collection: @workout.performed_exercises, locals: { workout: @workout } %>
+<div data-controller="sortable" data-sortable-animation-value="150" id="performed_exercises">
+  <%= render  partial: "performed_exercises/performed_exercise", collection: @workout.performed_exercises.sort_by(&:position), locals: { workout: @workout } %>
 </div>
 
 <div>

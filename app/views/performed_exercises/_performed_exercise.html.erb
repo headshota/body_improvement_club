@@ -1,5 +1,5 @@
 <%# locals: (workout:, performed_exercise:) %>
-<div style="padding: 10px 0;" id="<%= dom_id(performed_exercise) %>">
+<div data-sortable-update-url="<%= performed_exercises_position_path(performed_exercise) %>" style="padding: 10px 0;" id="<%= dom_id(performed_exercise) %>">
   <div class="flex justify-space-between">
     <header><%= performed_exercise.exercise.name %></header>
     <div>

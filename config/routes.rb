@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :performed_sets, only: [ :create ]
   end
 
+  namespace :performed_exercises do
+    resources :positions, only: [ :update ]
+  end
+
   resources :performed_sets, only: [ :update, :destroy ]
 
   resources :exercises
