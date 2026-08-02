@@ -39,6 +39,8 @@ gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 2.0"
+# Dependency for image processing gem (Not included by default in Gemfule)
+gem "ruby-vips"
 
 # Active Record Pagination
 gem "pagy"
