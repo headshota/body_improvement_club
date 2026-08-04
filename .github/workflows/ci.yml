@@ -31,6 +31,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
+      - name: Install packages
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libvips42t64
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -86,7 +89,7 @@ jobs:
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev libvips42t64
 
       - name: Checkout code
         uses: actions/checkout@v7
@@ -125,7 +128,7 @@ jobs:
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev libvips42t64
 
       - name: Checkout code
         uses: actions/checkout@v7
