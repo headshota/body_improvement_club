@@ -24,4 +24,17 @@ class WorkoutsTest < ActionDispatch::IntegrationTest
     get edit_workout_path(workout)
     assert_dom "button", "Cancel Workout"
   end
+
+  test "displays performed exercise overview for finished workouts" do
+    finished_workout = workouts(:finished)
+    exercise = exercises(:barbell_squat)
+    performed_exercise = finished_workout.performed_exercises.create!(exercise: exercise, position: 1)
+    performed_exercise.performed_sets.create!(weight: 100, performed_reps: 8)
+
+    get workouts_path
+    assert_response :success
+    assert_select "div", text: /Finished Workout/
+    assert_select "div", text: /Barbell Squat/
+    assert_select "li", text: /100 kg × 8 reps/
+  end
 end

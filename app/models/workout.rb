@@ -6,6 +6,8 @@ class Workout < ApplicationRecord
   validates :name, presence: true
   validates :started_at, presence: true
 
+  scope :finished, -> { where.not(finished_at: nil) }
+
   def self.current
     Workout.where.not(started_at: nil)
     .where(finished_at: nil).first

@@ -1,0 +1,14 @@
+<%# locals: (performed_exercise:) %>
+<div>
+  <div><%= performed_exercise.exercise.name %></div>
+  <% performed_sets = performed_exercise.performed_sets %>
+  <% if performed_sets.any? %>
+    <ul>
+      <% performed_sets.each do |performed_set| %>
+        <li>
+          <%= number_with_precision(performed_set.weight, strip_insignificant_zeros: true) %> kg × <%= performed_set.performed_reps %> reps
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
   def index
     @current_workout = Workout.current
+    @finished_workouts = Workout.includes(performed_exercises: [ :exercise, :performed_sets ]).finished
   end
 
   def create

@@ -1,0 +1,5 @@
+<%# locals: (workout:) %>
+<div><%= workout.name %></div>
+<div>
+  <%= render partial: "performed_exercise_overview", collection: workout.performed_exercises, as: :performed_exercise %>
+</div>

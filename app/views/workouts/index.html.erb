@@ -12,3 +12,7 @@
   %>
   <%= link_to "Start New Workout", Workout.new, class: "btn", data: data %>
 </div>
+<h1>Previous Workouts</h1>
+<div>
+  <%= render partial: "workout_overview", collection: @finished_workouts, as: :workout %>
+</div>
