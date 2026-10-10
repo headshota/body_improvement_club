@@ -207,11 +207,11 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    pg (1.6.3)
-    pg (1.6.3-aarch64-linux)
-    pg (1.6.3-aarch64-linux-musl)
-    pg (1.6.3-x86_64-linux)
-    pg (1.6.3-x86_64-linux-musl)
+    pg (1.7.0)
+    pg (1.7.0-aarch64-linux)
+    pg (1.7.0-aarch64-linux-musl)
+    pg (1.7.0-x86_64-linux)
+    pg (1.7.0-x86_64-linux-musl)
     positioning (0.4.8)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
@@ -397,7 +397,7 @@ DEPENDENCIES
   jbuilder
   kamal
   pagy
-  pg (~> 1.6)
+  pg (~> 1.7)
   positioning
   propshaft
   puma (>= 5.0)
