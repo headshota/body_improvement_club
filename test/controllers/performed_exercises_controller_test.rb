@@ -2,6 +2,7 @@ require "test_helper"
 
 class PerformedExercisesControllerTest < ActionDispatch::IntegrationTest
   test "create new performed exercise" do
+    sign_in_as(User.take)
     workout = Workout.create!
     assert_difference -> { PerformedExercise.count }, 1 do
       exercise = exercises(:barbell_squat)

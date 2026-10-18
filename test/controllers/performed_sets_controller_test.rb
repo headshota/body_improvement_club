@@ -2,6 +2,7 @@ require "test_helper"
 
 class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
   test "create new performed set" do
+    sign_in_as(User.take)
     workout = Workout.create!
     exercise = exercises(:barbell_squat)
     performed_exercise = workout.performed_exercises.create!(exercise: exercise)
@@ -12,6 +13,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "destroy" do
+    sign_in_as(User.take)
     performed_set = performed_sets(:performed_squat_set_one)
     workout = performed_set.performed_exercise.workout
 
@@ -23,6 +25,7 @@ class PerformedSetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "update" do
+    sign_in_as(User.take)
     workout = Workout.create!
     exercise = exercises(:barbell_squat)
     performed_exercise = workout.performed_exercises.create!(exercise: exercise)

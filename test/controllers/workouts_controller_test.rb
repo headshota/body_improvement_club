@@ -2,11 +2,13 @@ require "test_helper"
 
 class WorkoutsControllerTest < ActionDispatch::IntegrationTest
   test "index" do
+    sign_in_as(User.take)
     get workouts_path
     assert_response :success
   end
 
   test "create new workout" do
+    sign_in_as(User.take)
     workouts(:ongoing).destroy!
 
     assert_difference -> { Workout.count }, 1 do
@@ -18,12 +20,14 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "show" do
+    sign_in_as(User.take)
     workout = Workout.create!
     get workout_path(workout)
     assert_response :success
   end
 
   test "destroy workout" do
+    sign_in_as(User.take)
     workout = workouts(:finished)
     exercise = exercises(:barbell_squat)
     performed_exercise = workout.performed_exercises.create!(exercise: exercise)
@@ -36,6 +40,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "finish workout" do
+    sign_in_as(User.take)
     workout = workouts(:ongoing)
 
     assert_changes -> { workout.reload.finished_at? }, from: false, to: true do
