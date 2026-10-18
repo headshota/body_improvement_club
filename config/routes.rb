@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
   resources :workouts, except: [ :new ] do
     resources :performed_exercises, only: [ :new, :create ]
   end
