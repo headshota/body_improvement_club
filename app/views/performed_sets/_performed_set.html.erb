@@ -5,10 +5,10 @@
   <td>
     <%= turbo_frame_tag dom_id(performed_set, "weight") do %>
       <%= form_with model: performed_set do |form| %>
-        <%= form.text_field :weight, 
+        <%= form.number_field :weight,
         value: number_with_precision(form.object.weight, strip_insignificant_zeros: true), 
         onfocusout: "this.form.requestSubmit()", 
-        size: 5, autocomplete: "off"
+        size: 5, autocomplete: "off", step: 0.1
          %>
       <% end %>
     <% end %>
