@@ -3,7 +3,17 @@ require "application_system_test_case"
 class SmokeTest < ApplicationSystemTestCase
   test "Do Workout" do
     workouts(:ongoing).destroy!
+    logged_in_user = User.take
+
     visit workouts_path
+
+    within("form") do
+      fill_in 'Enter your email address', with: logged_in_user.email_address
+      fill_in 'Enter your password', with: 'password'
+    end
+
+    click_button 'Sign in'
+
     click_on "Start New Workout"
 
     assert_selector "h1", text: "New Empty Workout"
