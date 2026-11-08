@@ -8,11 +8,11 @@ class SmokeTest < ApplicationSystemTestCase
     visit workouts_path
 
     within("form") do
-      fill_in 'Enter your email address', with: logged_in_user.email_address
-      fill_in 'Enter your password', with: 'password'
+      fill_in "Enter your email address", with: logged_in_user.email_address
+      fill_in "Enter your password", with: "password"
     end
 
-    click_button 'Sign in'
+    click_button "Sign in"
 
     click_on "Start New Workout"
 
